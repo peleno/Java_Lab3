@@ -1,45 +1,45 @@
 package ua.lviv.iot.lightshop.model;
 
 public class LightBulb {
-	private double powerInW;
-	
-	private double voltageInV;
-	
-	private String color;
-	
-	private BulbType type;
+    private double powerInW;
 
-	public double getPowerInW() {
-		return powerInW;
-	}
+    private double voltageInV;
 
-	public void setPowerInW(double powerInW) {
-		this.powerInW = powerInW;
-	}
+    private String color;
 
-	public double getVoltageInV() {
-		return voltageInV;
-	}
+    private BulbType type;
 
-	public void setVoltageInV(double voltageInV) {
-		this.voltageInV = voltageInV;
-	}
+    public double getPowerInW() {
+        return powerInW;
+    }
 
-	public String getColor() {
-		return color;
-	}
+    public void setPowerInW(double powerInW) {
+        this.powerInW = powerInW;
+    }
 
-	public void setColor(String color) {
-		this.color = color;
-	}
+    public double getVoltageInV() {
+        return voltageInV;
+    }
 
-	public BulbType getType() {
-		return type;
-	}
+    public void setVoltageInV(double voltageInV) {
+        this.voltageInV = voltageInV;
+    }
 
-	public void setType(BulbType type) {
-		this.type = type;
-	}
-	
-	
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public BulbType getType() {
+        return type;
+    }
+
+    public void setType(BulbType type) {
+        this.type = type;
+    }
+
+
 }
