@@ -9,7 +9,15 @@ public class FloorLamp extends AbstractLamp {
             RoomType room, int heightInMm, int widthInMm, RackType rack) {
         super(style, countOfBulbs, bulbs, brand, priceInUAH, room, heightInMm, widthInMm);
         this.rack = rack;
-    }    
+    }
+
+    public String getHeaders() {
+        return super.getHeaders() + "," + "rack";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + rack;
+    }
 
     public RackType getRack() {
         return rack;

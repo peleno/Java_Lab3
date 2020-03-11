@@ -35,8 +35,15 @@ public abstract class AbstractLamp {
         this.heightInMm = heightInMm;
         this.widthInMm = widthInMm;
     }
-    
-    
+
+    public String getHeaders() {
+        return "style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm";
+    }
+
+    public String toCSV() {
+        return style + "," + countOfBulbs + "," + bulbs + "," + brand + "," + priceInUAH + "," + room + "," + heightInMm
+                + "," + widthInMm;
+    }
 
     public AbstractLamp(String style, int countOfBulbs, double priceInUAH, RoomType room) {
         this(style, countOfBulbs, null, null, priceInUAH, room, 0, 0);
