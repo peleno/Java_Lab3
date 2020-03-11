@@ -14,6 +14,14 @@ public class WallLamp extends AbstractLamp {
         this.shape = shape;
     }
 
+    public String getHeaders() {
+        return super.getHeaders() + "," + "depthInMm" + "," + "shape";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + depthInMm + "," + shape;
+    }
+
     public int getDepthInMm() {
         return depthInMm;
     }

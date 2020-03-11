@@ -1,0 +1,16 @@
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,shape
+Classic,4,null,Artemide,2701.0,LIVINGROOM,85,290,SPHERE
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,shape
+Modern,2,null,Artempo,1069.0,KITCHEN,150,370,CIRCLE
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,rack
+Country,1,null,Fabbian,539.0,CHILDRENROOM,1510,380,ARC
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,rack
+Modern,2,null,Emporium,799.0,CORRIDOR,1650,380,UNUSUAL
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,type
+Classic,1,null,Lampex,1459.0,BEDROOM,440,180,BEDSIDE
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,type
+Office,1,null,Lis,1191.0,OFFICE,300,100,TASK
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,depthInMm,shape
+Minimal,2,null,Nordlux,3039.0,BATHROOM,120,120,120,SQUARE
+style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm,depthInMm,shape
+Luxury,3,null,Vistosi,5452.0,BEDROOM,320,205,205,SPHERE
