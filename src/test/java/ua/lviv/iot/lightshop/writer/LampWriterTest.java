@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.io.Writer;
 
 import org.junit.jupiter.api.Test;
 import ua.lviv.iot.lightshop.manager.BaseLampManagerTest;
@@ -15,17 +16,25 @@ class LampWriterTest extends BaseLampManagerTest {
 
     @Test
     void writeToFileTest() throws IOException {
-        lampWriter.setTextWriter(new FileWriter("lampInfo.csv"));
-        lampWriter.writeToFile(lamps);
+        try (Writer writer = new FileWriter("lampInfo.csv")) {
+            lampWriter.setTextWriter(writer);
+            lampWriter.writeToFile(lamps);
+        } catch (IOException e) {
+
+        }
     }
 
     @Test
     void stringWriterTest() throws IOException {
         String expectedInfo = "";
-        lampWriter.setTextWriter(new StringWriter());
-        lampWriter.writeToFile(lamps);
-        for (AbstractLamp lamp : lamps) {
-            expectedInfo += lamp.getHeaders() + "\n" + lamp.toCSV() + "\n";
+        try (Writer writer = new StringWriter()) {
+            lampWriter.setTextWriter(writer);
+            lampWriter.writeToFile(lamps);
+            for (AbstractLamp lamp : lamps) {
+                expectedInfo += lamp.getHeaders() + "\n" + lamp.toCSV() + "\n";
+            }
+        } catch (IOException e) {
+
         }
         assertEquals(expectedInfo, lampWriter.toString());
     }
