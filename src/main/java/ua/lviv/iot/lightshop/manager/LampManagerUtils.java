@@ -34,8 +34,8 @@ public class LampManagerUtils {
 
     // sort using static inner class
     public static void sortLampsByCountOfBulbs(List<AbstractLamp> lamps, SortType sortType) {
-        lamps.sort(
-                sortType == SortType.ASCENDING ? LAMPS_SORTER_BY_COUNT_OF_BULBS : LAMPS_SORTER_BY_COUNT_OF_BULBS.reversed());
+        lamps.sort(sortType == SortType.ASCENDING ? LAMPS_SORTER_BY_COUNT_OF_BULBS
+                : LAMPS_SORTER_BY_COUNT_OF_BULBS.reversed());
     }
 
     // sort using anonymous class

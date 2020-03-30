@@ -17,6 +17,9 @@ public class TableLamp extends AbstractLamp {
 
     }
 
+    public TableLamp() {
+    }
+
     public String getHeaders() {
         return super.getHeaders() + "," + "type";
     }

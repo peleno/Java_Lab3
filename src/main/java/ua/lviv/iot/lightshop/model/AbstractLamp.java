@@ -1,8 +1,15 @@
 package ua.lviv.iot.lightshop.model;
 
 import java.util.List;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 public abstract class AbstractLamp {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     protected String style;
 
@@ -36,15 +43,6 @@ public abstract class AbstractLamp {
         this.widthInMm = widthInMm;
     }
 
-    public String getHeaders() {
-        return "style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm";
-    }
-
-    public String toCSV() {
-        return style + "," + countOfBulbs + "," + bulbs + "," + brand + "," + priceInUAH + "," + room + "," + heightInMm
-                + "," + widthInMm;
-    }
-
     public AbstractLamp(String style, int countOfBulbs, double priceInUAH, RoomType room) {
         this(style, countOfBulbs, null, null, priceInUAH, room, 0, 0);
     }
@@ -55,6 +53,23 @@ public abstract class AbstractLamp {
 
     public AbstractLamp(double price) {
         this.priceInUAH = price;
+    }
+
+    public String getHeaders() {
+        return "style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm";
+    }
+
+    public String toCSV() {
+        return style + "," + countOfBulbs + "," + bulbs + "," + brand + "," + priceInUAH + "," + room + "," + heightInMm
+                + "," + widthInMm;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getStyle() {

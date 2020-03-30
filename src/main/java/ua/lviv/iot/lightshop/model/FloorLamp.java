@@ -11,6 +11,9 @@ public class FloorLamp extends AbstractLamp {
         this.rack = rack;
     }
 
+    public FloorLamp() {
+    }
+
     public String getHeaders() {
         return super.getHeaders() + "," + "rack";
     }
