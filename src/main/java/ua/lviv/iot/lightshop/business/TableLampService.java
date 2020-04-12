@@ -1,6 +1,7 @@
 package ua.lviv.iot.lightshop.business;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.lightshop.dataaccess.TableLampRepository;
@@ -30,7 +31,11 @@ public class TableLampService {
     }
 
     public TableLamp findLampById(Integer lampId) {
-        return tableLampRepository.findById(lampId).get();
+        try {
+            return tableLampRepository.findById(lampId).get();
+        } catch (NoSuchElementException e) {
+            return null;
+        }
     }
 
     public List<TableLamp> findAll() {

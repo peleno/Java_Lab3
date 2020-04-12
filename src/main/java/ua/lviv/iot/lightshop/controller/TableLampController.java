@@ -34,16 +34,16 @@ public class TableLampController {
 
     @PostMapping
     public TableLamp createLamp(final @RequestBody TableLamp lamp) {
-        System.out.println(tableLampService.createLamp(lamp));
-        return lamp;
+        return tableLampService.createLamp(lamp);
     }
 
     @PutMapping(path = "{id}")
     public ResponseEntity<TableLamp> updateLamp(final @PathVariable("id") Integer lampId,
             final @RequestBody TableLamp lamp) {
-        if (tableLampService.lampExists(lampId)) {
+        TableLamp previousLamp = tableLampService.findLampById(lampId);
+        if (previousLamp != null) {
             tableLampService.updateLamp(lampId, lamp);
-            return ResponseEntity.status(HttpStatus.OK).build();
+            return ResponseEntity.ok(previousLamp);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
