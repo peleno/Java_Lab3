@@ -1,14 +1,20 @@
 package ua.lviv.iot.lightshop.model;
 
-import java.util.List;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public abstract class AbstractLamp {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     protected String style;
 
     protected int countOfBulbs;
-
-    protected List<LightBulb> bulbs;
 
     protected String brand;
 
@@ -24,11 +30,10 @@ public abstract class AbstractLamp {
 
     }
 
-    public AbstractLamp(String style, int countOfBulbs, List<LightBulb> bulbs, String brand, double priceInUAH,
-            RoomType room, int heightInMm, int widthInMm) {
+    public AbstractLamp(String style, int countOfBulbs, String brand, double priceInUAH, RoomType room, int heightInMm,
+            int widthInMm) {
         this.style = style;
         this.countOfBulbs = countOfBulbs;
-        this.bulbs = bulbs;
         this.brand = brand;
         this.priceInUAH = priceInUAH;
         this.room = room;
@@ -36,17 +41,8 @@ public abstract class AbstractLamp {
         this.widthInMm = widthInMm;
     }
 
-    public String getHeaders() {
-        return "style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm";
-    }
-
-    public String toCSV() {
-        return style + "," + countOfBulbs + "," + bulbs + "," + brand + "," + priceInUAH + "," + room + "," + heightInMm
-                + "," + widthInMm;
-    }
-
     public AbstractLamp(String style, int countOfBulbs, double priceInUAH, RoomType room) {
-        this(style, countOfBulbs, null, null, priceInUAH, room, 0, 0);
+        this(style, countOfBulbs, null, priceInUAH, room, 0, 0);
     }
 
     public AbstractLamp(RoomType room) {
@@ -55,6 +51,23 @@ public abstract class AbstractLamp {
 
     public AbstractLamp(double price) {
         this.priceInUAH = price;
+    }
+
+    public String getHeaders() {
+        return "style,countOfBulbs,bulbs,brand,priceInUAH,room,heightInMm,widthInMm";
+    }
+
+    public String toCSV() {
+        return style + "," + countOfBulbs + "," + "," + brand + "," + priceInUAH + "," + room + "," + heightInMm + ","
+                + widthInMm;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getStyle() {
@@ -71,14 +84,6 @@ public abstract class AbstractLamp {
 
     public void setCountOfBulbs(int countOfBulbs) {
         this.countOfBulbs = countOfBulbs;
-    }
-
-    public List<LightBulb> getBulbs() {
-        return bulbs;
-    }
-
-    public void setBulbs(List<LightBulb> bulbs) {
-        this.bulbs = bulbs;
     }
 
     public String getBrand() {

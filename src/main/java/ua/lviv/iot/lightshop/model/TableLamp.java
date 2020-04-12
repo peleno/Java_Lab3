@@ -1,20 +1,24 @@
 package ua.lviv.iot.lightshop.model;
 
-import java.util.List;
+import javax.persistence.Entity;
 
+@Entity
 public class TableLamp extends AbstractLamp {
 
     private TableLampType type;
 
-    public TableLamp(String style, int countOfBulbs, List<LightBulb> bulbs, String brand, double priceInUAH,
-            RoomType room, int heightInMm, int widthInMm, TableLampType type) {
-        super(style, countOfBulbs, bulbs, brand, priceInUAH, room, heightInMm, widthInMm);
+    public TableLamp(String style, int countOfBulbs, String brand, double priceInUAH, RoomType room, int heightInMm,
+            int widthInMm, TableLampType type) {
+        super(style, countOfBulbs, brand, priceInUAH, room, heightInMm, widthInMm);
         this.type = type;
     }
 
     public TableLamp(double price) {
         super(price);
 
+    }
+
+    public TableLamp() {
     }
 
     public String getHeaders() {
@@ -32,5 +36,4 @@ public class TableLamp extends AbstractLamp {
     public void setType(TableLampType type) {
         this.type = type;
     }
-
 }

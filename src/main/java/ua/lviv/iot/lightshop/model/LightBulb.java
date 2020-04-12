@@ -1,6 +1,7 @@
 package ua.lviv.iot.lightshop.model;
 
 public class LightBulb {
+
     private double powerInW;
 
     private double voltageInV;
@@ -8,6 +9,10 @@ public class LightBulb {
     private String color;
 
     private BulbType type;
+
+    public LightBulb() {
+
+    }
 
     public double getPowerInW() {
         return powerInW;
@@ -40,6 +45,5 @@ public class LightBulb {
     public void setType(BulbType type) {
         this.type = type;
     }
-
 
 }

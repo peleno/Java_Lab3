@@ -1,14 +1,15 @@
 package ua.lviv.iot.lightshop.model;
 
-import java.util.List;
-
 public class FloorLamp extends AbstractLamp {
     private RackType rack;
 
-    public FloorLamp(String style, int countOfBulbs, List<LightBulb> bulbs, String brand, double priceInUAH,
-            RoomType room, int heightInMm, int widthInMm, RackType rack) {
-        super(style, countOfBulbs, bulbs, brand, priceInUAH, room, heightInMm, widthInMm);
+    public FloorLamp(String style, int countOfBulbs, String brand, double priceInUAH, RoomType room, int heightInMm,
+            int widthInMm, RackType rack) {
+        super(style, countOfBulbs, brand, priceInUAH, room, heightInMm, widthInMm);
         this.rack = rack;
+    }
+
+    public FloorLamp() {
     }
 
     public String getHeaders() {
